@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 
-import './style.scss';
+import { Input } from 'components/input';
 
-ReactDom.render(<div>Hi!</div>, document.getElementById("root"));
+ReactDom.render(<Input label={'test'} value={''} onChange={() => null} />, document.getElementById("root"));
