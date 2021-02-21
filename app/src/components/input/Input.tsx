@@ -1,4 +1,4 @@
-import React, { FC, FormEvent, useMemo } from "react";
+import React, { FormEvent, useMemo } from "react";
 import { cn } from "@bem-react/classname";
 import { v4 } from "uuid";
 
@@ -6,17 +6,19 @@ import "./input.scss";
 
 const input = cn("input");
 
-type Input = {
+type TInput = {
   label?: string;
   value: string;
   onChange: (value: string) => void;
 };
 
-export const Input: FC<Input> = ({ label, value, onChange }) => {
+export const Input = ({ label, value, onChange }: TInput): JSX.Element => {
   const id = v4();
-  const blockClass = input();
+  const inputClass = input();
   const labelClass = input("label");
-  const nativeClass = input("native");
+  const containerClass = input("container");
+  const nativeInputClass = input("native");
+  const underlineClass = input("underline");
 
   const handleChange = useMemo(
     () => (event: FormEvent<HTMLInputElement>) => {
@@ -26,18 +28,21 @@ export const Input: FC<Input> = ({ label, value, onChange }) => {
   );
 
   return (
-    <div className={blockClass}>
+    <div className={inputClass}>
       {label && (
         <label htmlFor={id} className={labelClass}>
           {label}
         </label>
       )}
-      <input
-        id={id}
-        className={nativeClass}
-        value={value}
-        onChange={handleChange}
-      />
+      <div className={containerClass}>
+        <input
+          id={id}
+          className={nativeInputClass}
+          value={value}
+          onChange={handleChange}
+        />
+        <div className={underlineClass} />
+      </div>
     </div>
   );
 };

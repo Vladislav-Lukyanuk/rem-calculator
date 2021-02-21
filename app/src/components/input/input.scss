@@ -1,11 +1,41 @@
 .input {
-  background-color: black;
+  display: flex;
+  flex-direction: column;
 
   &-label {
-    color: green;
+    margin-bottom: 8px;
+  }
+
+  &-container {
+    margin-bottom: 16px;
+    border-top-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+
+    padding: 8px 8px 8px 16px;
+
+    border: 1px solid #DEE1E6;
+
+    -webkit-box-shadow: 0px 2px 2px 0px rgba(71, 71, 71, 0.1);
+    -moz-box-shadow: 0px 2px 2px 0px rgba(71, 71, 71, 0.1);
+    box-shadow: 0px 2px 2px 0px rgba(71, 71, 71, 0.1);
+
+    &:hover {
+      .input-underline {
+        background-color: green;
+      }
+    }
   }
 
   &-native {
-    padding: 4px;
+    width: 100%;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+  }
+
+  &-underline {
+    height: 2px;
+    width: 100%;
+    box-sizing: border-box;
   }
 }

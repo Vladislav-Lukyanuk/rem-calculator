@@ -3,7 +3,11 @@ import ReactDom from "react-dom";
 
 import { Input } from "components/input";
 
+import "./reset.scss";
+
 ReactDom.render(
-  <Input label={"test"} value={""} onChange={() => null} />,
+  <div style={{ margin: "24px" }}>
+    <Input label={"test"} value={""} onChange={() => null} />
+  </div>,
   document.getElementById("root")
 );
