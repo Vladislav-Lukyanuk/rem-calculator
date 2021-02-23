@@ -1,3 +1,5 @@
+@import "~theme/colors";
+
 .input {
   display: flex;
   flex-direction: column;
@@ -5,7 +7,7 @@
   &-label {
     margin-bottom: 8px;
 
-    color: #969696;
+    color: $primary-90;
     text-align: end;
   }
 
@@ -15,7 +17,7 @@
 
     padding: 8px 8px 8px 16px;
 
-    border: 1px solid #DEE1E6;
+    border: 1px solid $primary-50;
 
     -webkit-box-shadow: 0px 2px 2px 0px rgba(71, 71, 71, 0.1);
     -moz-box-shadow: 0px 2px 2px 0px rgba(71, 71, 71, 0.1);
@@ -26,7 +28,7 @@
     transition: background-color .3s ease-out;
 
     &:focus-within {
-      background-color: #f7f7f7;
+      background-color: $primary-20;
 
       .input-underline {
         width: 100%;
@@ -48,7 +50,7 @@
     width: 0px;
     box-sizing: border-box;
 
-    background-color: #89e49c;
+    background-color: $secondary-20;
 
     transition: width .3s ease-out;
   }

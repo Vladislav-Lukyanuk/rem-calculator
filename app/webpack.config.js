@@ -19,21 +19,6 @@ module.exports = {
         test: /\.scss$/,
         use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
       },
-      {
-        test: /\.(svg|png|gif|jpg)$/,
-        exclude: /fonts/,
-        loader: "file-loader",
-        options: {
-          name: "[path][name].[ext]",
-        },
-      },
-      {
-        test: /\.(ttf|eot|woff|svg|woff2)$/,
-        loader: "file-loader",
-        options: {
-          name: "[path][name].[ext]",
-        },
-      },
     ],
   },
   resolve: {
@@ -41,6 +26,7 @@ module.exports = {
     alias: {
       assets: path.resolve(__dirname, "src/assets"),
       components: path.resolve(__dirname, "src/components"),
+      theme: path.resolve(__dirname, "src/theme"),
       typography: path.resolve(__dirname, "src/typography"),
       pages: path.resolve(__dirname, "src/pages"),
       scss: path.resolve(__dirname, "src/scss"),

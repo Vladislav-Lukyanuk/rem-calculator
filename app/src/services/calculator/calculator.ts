@@ -5,21 +5,21 @@ type TConvert = {
   px?: number;
 };
 
-export function calculator() {
-  function convert(
+export class Calculator {
+  convert(
     usePx: boolean,
     fontSize: number,
     rem: number,
     px: number
   ): Promise<TConvert> {
     if (usePx) {
-      return _pxToRem(fontSize, rem, px);
+      return this.pxToRem(fontSize, px);
     }
 
-    return _remToPx(fontSize, rem);
+    return this.remToPx(fontSize, rem);
   }
 
-  function _remToPx(fontSize: number, rem: number): Promise<TConvert> {
+  private remToPx(fontSize: number, rem: number): Promise<TConvert> {
     return new Promise((resolve, reject) => {
       const value = fontSize * rem;
 
@@ -34,11 +34,7 @@ export function calculator() {
     });
   }
 
-  function _pxToRem(
-    fontSize: number,
-    rem: number,
-    px: number
-  ): Promise<TConvert> {
+  private pxToRem(fontSize: number, px: number): Promise<TConvert> {
     return new Promise((resolve, reject) => {
       const value = Math.round((px / fontSize) * 1000) / 1000;
 
@@ -52,8 +48,4 @@ export function calculator() {
       });
     });
   }
-
-  return {
-    convert,
-  };
 }

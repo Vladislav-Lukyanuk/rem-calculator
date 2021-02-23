@@ -5,7 +5,7 @@ import { ESize } from "assets/images/types";
 import { NumberInput } from "components/input";
 import { Button } from "components/button";
 import { Heading1 } from "typography";
-import { calculator as calculatorService } from "services/calculator";
+import { Calculator as CalculatorService } from "services/calculator";
 
 import "./calculator.styles.scss";
 
@@ -24,7 +24,7 @@ const LABEL = {
   rem: "REM",
 };
 
-const calculator = calculatorService();
+const calculator = new CalculatorService();
 
 export const Calculator = () => {
   const [fontSize, setFontSize] = useState(INITIAL_STATE.fontSize);
