@@ -7,6 +7,7 @@ import { Button } from "components/button";
 import { Heading1 } from "typography";
 import { Calculator as CalculatorService } from "services/calculator";
 
+import "pages/page.styles.scss";
 import "./calculator.styles.scss";
 
 const TITLE = "REM/PX Calculator";
@@ -57,25 +58,27 @@ export const Calculator = () => {
   }, [setMeasure]);
 
   return (
-    <div className="calculator">
-      <div className="calculator-logo">
-        <Heading1>{TITLE}</Heading1>
-      </div>
-      <div className="calculator-font-size">
-        <div className="calculator-input">
-          <NumberInput
-            label={LABEL.fontSize}
-            value={fontSize}
-            onChange={setFontSize}
-          />
+    <div className="page">
+      <div className="calculator">
+        <div className="calculator-logo">
+          <Heading1>{TITLE}</Heading1>
         </div>
+        <div className="calculator-font-size">
+          <div className="calculator-input">
+            <NumberInput
+              label={LABEL.fontSize}
+              value={fontSize}
+              onChange={setFontSize}
+            />
+          </div>
+        </div>
+        <div className="calculator-toggler">
+          <Button onClick={toggle}>
+            <Exchange size={ESize.micro} />
+          </Button>
+        </div>
+        {measures}
       </div>
-      <div className="calculator-toggler">
-        <Button onClick={toggle}>
-          <Exchange size={ESize.micro} />
-        </Button>
-      </div>
-      {measures}
     </div>
   );
 };
