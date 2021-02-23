@@ -1,13 +1,9 @@
 import React from "react";
 import ReactDom from "react-dom";
 
-import { Input } from "components/input";
+import { Calculator } from "pages/calculator";
 
-import "./reset.scss";
+import "./scss/global.scss";
+import "./scss/reset.scss";
 
-ReactDom.render(
-  <div style={{ margin: "24px" }}>
-    <Input label={"test"} value={""} onChange={() => null} />
-  </div>,
-  document.getElementById("root")
-);
+ReactDom.render(<Calculator />, document.getElementById("root"));

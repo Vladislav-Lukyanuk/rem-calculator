@@ -4,10 +4,12 @@
 
   &-label {
     margin-bottom: 8px;
+
+    color: #969696;
+    text-align: end;
   }
 
   &-container {
-    margin-bottom: 16px;
     border-top-left-radius: 8px;
     border-bottom-right-radius: 8px;
 
@@ -19,9 +21,15 @@
     -moz-box-shadow: 0px 2px 2px 0px rgba(71, 71, 71, 0.1);
     box-shadow: 0px 2px 2px 0px rgba(71, 71, 71, 0.1);
 
-    &:hover {
+    cursor: text;
+
+    transition: background-color .3s ease-out;
+
+    &:focus-within {
+      background-color: #f7f7f7;
+
       .input-underline {
-        background-color: green;
+        width: 100%;
       }
     }
   }
@@ -29,13 +37,19 @@
   &-native {
     width: 100%;
     box-sizing: border-box;
+
+    background-color: inherit;
     outline: none;
     border: none;
   }
 
   &-underline {
     height: 2px;
-    width: 100%;
+    width: 0px;
     box-sizing: border-box;
+
+    background-color: #89e49c;
+
+    transition: width .3s ease-out;
   }
 }

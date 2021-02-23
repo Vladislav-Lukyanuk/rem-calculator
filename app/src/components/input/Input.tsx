@@ -2,17 +2,23 @@ import React, { FormEvent, useMemo } from "react";
 import { cn } from "@bem-react/classname";
 import { v4 } from "uuid";
 
+import { Caption1 } from "typography";
+
 import "./input.scss";
 
 const input = cn("input");
 
-type TInput = {
+type TInput<T> = {
   label?: string;
-  value: string;
-  onChange: (value: string) => void;
+  value: T;
+  onChange: (value: T) => void;
 };
 
-export const Input = ({ label, value, onChange }: TInput): JSX.Element => {
+export const Input = ({
+  label,
+  value,
+  onChange,
+}: TInput<number>): JSX.Element => {
   const id = v4();
   const inputClass = input();
   const labelClass = input("label");
@@ -22,7 +28,9 @@ export const Input = ({ label, value, onChange }: TInput): JSX.Element => {
 
   const handleChange = useMemo(
     () => (event: FormEvent<HTMLInputElement>) => {
-      onChange(event.currentTarget.value);
+      const value = Number(event.currentTarget.value);
+
+      onChange(value);
     },
     [onChange]
   );
@@ -30,11 +38,11 @@ export const Input = ({ label, value, onChange }: TInput): JSX.Element => {
   return (
     <div className={inputClass}>
       {label && (
-        <label htmlFor={id} className={labelClass}>
-          {label}
-        </label>
+        <div className={labelClass}>
+          <Caption1>{label}</Caption1>
+        </div>
       )}
-      <div className={containerClass}>
+      <label htmlFor={id} className={containerClass}>
         <input
           id={id}
           className={nativeInputClass}
@@ -42,7 +50,7 @@ export const Input = ({ label, value, onChange }: TInput): JSX.Element => {
           onChange={handleChange}
         />
         <div className={underlineClass} />
-      </div>
+      </label>
     </div>
   );
 };

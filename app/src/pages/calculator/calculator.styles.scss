@@ -1,0 +1,29 @@
+@import "~scss/global";
+
+.calculator {
+  @include noSelect;
+
+  display: grid;
+  grid-gap: 16px;
+  grid-template-columns: 240px 240px;
+  justify-items: center;
+
+  width: max-content;
+
+  &-logo {
+    grid-area: 1 / 1 / 1 / 3;
+  }
+
+  &-font-size {
+    grid-area: 2 / 1 / 2 / 3;
+  }
+
+  &-toggler {
+    grid-area: 3 / 1 / 3 / 3;
+  }
+
+  &-input {
+    width: 200px;
+  }
+}
+

@@ -37,10 +37,17 @@ module.exports = {
     ],
   },
   resolve: {
+    modules: [path.resolve("src"), path.resolve("node_modules")],
     alias: {
+      assets: path.resolve(__dirname, "src/assets"),
       components: path.resolve(__dirname, "src/components"),
+      typography: path.resolve(__dirname, "src/typography"),
+      pages: path.resolve(__dirname, "src/pages"),
+      scss: path.resolve(__dirname, "src/scss"),
+      services: path.resolve(__dirname, "src/services"),
+      utilities: path.resolve(__dirname, "src/utilities"),
     },
-    extensions: [".tsx", ".ts", ".js"],
+    extensions: [".tsx", ".ts", ".js", ".scss"],
   },
   plugins: [
     new MiniCssExtractPlugin({
