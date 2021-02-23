@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useMemo, useState } from "react";
 
 import { Exchange } from "assets/images/exchange";
 import { ESize } from "assets/images/types";
-import { Input } from "components/input";
+import { NumberInput } from "components/input";
 import { Button } from "components/button";
 import { Heading1 } from "typography";
 import { calculator as calculatorService } from "services/calculator";
@@ -34,22 +34,18 @@ export const Calculator = () => {
 
   useEffect(() => {
     calculator.convert(isPxMeasure, fontSize, rem, px).then(({ px, rem }) => {
-      if (px) {
-        setPx(px);
-      }
-      if (rem) {
-        setRem(rem);
-      }
+      setPx(px);
+      setRem(rem);
     });
   }, [isPxMeasure, fontSize, rem, px, setPx, setRem]);
 
   const measures = useMemo(() => {
     const fields = [
-      <div className="calculator-input">
-        <Input label={LABEL.px} value={px} onChange={setPx} />
+      <div className="calculator-input" key="px">
+        <NumberInput label={LABEL.px} value={px} onChange={setPx} />
       </div>,
-      <div className="calculator-input">
-        <Input label={LABEL.rem} value={rem} onChange={setRem} />
+      <div className="calculator-input" key="rem">
+        <NumberInput label={LABEL.rem} value={rem} onChange={setRem} />
       </div>,
     ];
 
@@ -67,7 +63,7 @@ export const Calculator = () => {
       </div>
       <div className="calculator-font-size">
         <div className="calculator-input">
-          <Input
+          <NumberInput
             label={LABEL.fontSize}
             value={fontSize}
             onChange={setFontSize}

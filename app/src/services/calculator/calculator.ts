@@ -1,3 +1,5 @@
+import isNil from "lodash-es/isNil";
+
 type TConvert = {
   rem?: number;
   px?: number;
@@ -21,7 +23,7 @@ export function calculator() {
     return new Promise((resolve, reject) => {
       const value = fontSize * rem;
 
-      if (!value) {
+      if (isNil(value)) {
         reject(Error("font size or rem isn't a number"));
       }
 
@@ -40,7 +42,7 @@ export function calculator() {
     return new Promise((resolve, reject) => {
       const value = Math.round((px / fontSize) * 1000) / 1000;
 
-      if (!value) {
+      if (isNil(value)) {
         reject(Error("font size or px isn't a number"));
       }
 
