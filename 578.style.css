@@ -4,7 +4,7 @@
 
 .button{padding:4px 8px;cursor:pointer}
 
-.page{display:flex;align-items:center;justify-content:center;height:100vh;width:1024px}
+.page{display:flex;align-items:center;justify-content:center;height:100vh;width:1024px;margin:auto}
 
 .calculator{-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;display:grid;grid-gap:16px;grid-template-columns:240px 240px;justify-items:center;width:max-content}.calculator-logo{grid-area:1 / 1 / 1 / 3}.calculator-font-size{grid-area:2 / 1 / 2 / 3}.calculator-toggler{grid-area:3 / 1 / 3 / 3}.calculator-input{width:200px}
 
