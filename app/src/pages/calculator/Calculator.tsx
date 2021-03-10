@@ -60,10 +60,10 @@ export const Calculator = () => {
   return (
     <div className="page">
       <div className="calculator">
-        <div className="calculator-logo">
+        <div className="calculator-item calculator-header">
           <Heading1>{TITLE}</Heading1>
         </div>
-        <div className="calculator-font-size">
+        <div className="calculator-item">
           <div className="calculator-input">
             <NumberInput
               label={LABEL.fontSize}
@@ -72,12 +72,12 @@ export const Calculator = () => {
             />
           </div>
         </div>
-        <div className="calculator-toggler">
+        <div className="calculator-item">
           <Button onClick={toggle}>
-            <Exchange size={ESize.micro} />
+            <Exchange size={ESize.big} />
           </Button>
         </div>
-        {measures}
+        <div className="calculator-item">{measures}</div>
       </div>
     </div>
   );
